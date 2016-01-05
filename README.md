@@ -20,8 +20,10 @@ All software is built on a stack of technologies, and you need to understand eno
 
 You should learn, in this order, **without skipping ahead or learning concurrently**:
 
+* React Hello World
 * React itself
 * `npm`
+* JSX and the tooling it requires
 * JavaScript “bundlers”
 * ES6
 * Routing
@@ -30,6 +32,48 @@ You should learn, in this order, **without skipping ahead or learning concurrent
 * Relay, Falcor, etc
 
 Also: **you don't need to learn all of these to be productive with React.** Only move to the next step if you have a problem that needs to be solved.
+
+## React Hello World
+
+React does not enforce any special tooling to get started. The basic React view only needs a `render` function that return a single React Element. A React element can have one or more React elements as it's last parameter. Take for example the most basic Hello World for React.
+
+```javascript
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//fb.me/react-0.14.3.js"></script>
+<script src="//fb.me/react-dom-0.14.3.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+  var el = React.createElement;
+  var myView = React.createClass({
+    render: function(){
+      return el('h1', {color:'#F00'}, "Hello React");
+    }
+  });
+  ReactDOM.render(el(myView), document.getElementById('app'));
+  </script>
+</body>
+</html>
+```
+
+```javascript
+ReactElement createElement(
+  string/ReactClass type,
+  [object props],
+  [children ...]
+)
+```
+The view above in the Hello World can also be rewritten once you have tooling that supports JSX. JSX is helpful as components grow in size, readability becomes more important. Here is the JSX version:
+```javascript
+var myView = React.createClass({
+  render: function(){
+    return (<h1 color="#F00">Hello React</h1>);
+  }
+});
+```
 
 ## Learning React itself
 
